@@ -1,0 +1,8 @@
+/env
+/output/Links/*.txt
+/output/Words/*.txt
+/output/*.txt
+
+__
+.vscode
+/__pycache__
