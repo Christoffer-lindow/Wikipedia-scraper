@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as bs
-
+import colors
 
 def get_links(soup):
     return soup.find(id="bodyContent").find_all("a")
@@ -24,7 +24,7 @@ def scrape_html(url, parser, html_list, number_of_pages, count=0):
         html_list["html"].append(soup)
         list_size = len(html_list["url"])
         links_from_page = get_links(soup)
-        print(f"[{list_size}] Crawling: {url}")
+        print(f"[{colors.OKGREEN}{list_size}{colors.ENDC}] Crawling: {url}")
         for link in links_from_page:
             try:
                 link_href = str(link["href"])

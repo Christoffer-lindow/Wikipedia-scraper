@@ -3,6 +3,7 @@ import re
 import os
 
 
+
 def check_dir_exists(path):
     if not os.path.exists(path):
         os.mkdir(path)
@@ -16,9 +17,6 @@ def write_html(path, list):
                 writer.write(str(page))
         except Exception as e:
             print(e)
-
-    print("Finished printing")
-
 
 def write_content(path, list):
     check_dir_exists(path+"/Words")
