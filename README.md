@@ -5,6 +5,8 @@ Webscraping project for scraping wikipedia pages.
 * Set up a virtual enviorment in the root of the project
 * pip install from the requirements.txt file
 * run: python main.py
+    * If you run the script without cli arguments the initial url to crawl is: https://en.wikipedia.org/wiki/Computer_programmin, 250 pages will be parsed
+    * You can also run the scripts with args: python main.py YOUR_URL NUMBER_OF_PAGES
 * Wait!
 
 ## Configure
