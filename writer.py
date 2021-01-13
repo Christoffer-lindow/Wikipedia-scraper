@@ -1,8 +1,14 @@
 from bs4 import BeautifulSoup as bs
 import re
+import os
 
+
+def check_dir_exists(path):
+    if not os.path.exists(path):
+        os.mkdir(path)
 
 def write_html(path, list):
+    check_dir_exists(path)
     with open(path + "/raw_html.txt", "w", encoding="utf-8") as writer:
         try:
             for page in list["html"]:
@@ -15,6 +21,7 @@ def write_html(path, list):
 
 
 def write_content(path, list):
+    check_dir_exists(path+"/Words")
     for page in list["html"]:
         page_content = get_words_from_page(page)
         local_path = f"{path}/Words/{page_content['title']}.txt"
@@ -27,6 +34,7 @@ def write_content(path, list):
 
 
 def write_links(path, list):
+    check_dir_exists(path + "/Links")
     for page in list["html"]:
         page_links = get_links_from_page(page)
         local_path = f"{path}/Links/{page_links['title']}.txt"
@@ -37,9 +45,8 @@ def write_links(path, list):
                     if row.startswith("/wiki/"):
                         writer.write(row)
             writer.close()
-        except:
-            print(
-                "Something went wrong with printing the file, does the directory exist?")
+        except Exception as e:
+            print(e)
 
 
 def get_title(page):

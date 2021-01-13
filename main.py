@@ -3,10 +3,12 @@ import writer
 import time
 REQUEST_URL = "https://en.wikipedia.org/wiki/Computer_programming"
 PARSER = "html.parser"
-PAGES_TO_PARSE = 250
+PAGES_TO_PARSE = 3
 BASE_PATH = "./output/"
 scraped_list = {"url": [], "html": []}
 
+
+    
 def crawl(scraped_list):
     start = time.localtime()
     start_clock = time.time()
