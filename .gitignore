@@ -1,7 +1,8 @@
 /env
 /output/Links/*.txt
 /output/Words/*.txt
-/output/*.txt
+/output/Html/*.html
+/output/Html/*.txt
 
 __
 .vscode

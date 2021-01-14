@@ -5,7 +5,7 @@ import sys
 import colors
 REQUEST_URL = "https://en.wikipedia.org/wiki/Computer_programming"
 PARSER = "html.parser"
-PAGES_TO_PARSE = 250
+PAGES_TO_PARSE = 5
 BASE_PATH = "./output/"
 
 
@@ -39,6 +39,8 @@ def create_links_pages(list):
     writer.write_links(BASE_PATH, list)
     print(f"{colors.OKGREEN}Link pages created successfuly{colors.ENDC}")
 
+def check_output_dir(path):
+    writer.check_dir_exists(path)
 
 def main(args):
     scraped_list = {"url": [], "html": []}
@@ -47,8 +49,9 @@ def main(args):
             print(f"{colors.OKCYAN}Running from cli arguments {colors.ENDC}")
             cralwed_list = crawl(args[1], int(args[2]), scraped_list)
         else:
-            print(f"{colors.OKCYAN}Running from cli arguments {colors.ENDC}")
+            print(f"{colors.OKCYAN}Running with defaults {colors.ENDC}")
             cralwed_list = crawl(REQUEST_URL, PAGES_TO_PARSE, scraped_list)
+        check_output_dir(BASE_PATH)
         create_raw_html(cralwed_list)
         create_content_pages(cralwed_list)
         create_links_pages(cralwed_list)
