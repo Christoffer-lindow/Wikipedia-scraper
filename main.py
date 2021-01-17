@@ -5,7 +5,7 @@ import sys
 import colors
 REQUEST_URL = "https://en.wikipedia.org/wiki/Computer_programming"
 PARSER = "html.parser"
-PAGES_TO_PARSE = 5
+PAGES_TO_PARSE = 250
 BASE_PATH = "./output/"
 
 
